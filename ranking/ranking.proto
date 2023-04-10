@@ -1,0 +1,19 @@
+syntax = "proto3";
+service RankItems {
+  rpc RankItem (GetRankItem) returns (RankResponse) {}
+}
+message GetRankItem {
+  int32 category = 1;
+  int32 page = 2;
+}
+message RankResponse {
+    repeated RankingResult response = 1;
+    int32 total_num = 2;
+}
+message RankingResult {
+    string product_id = 1;
+    string product_name = 2;
+    int32 price = 3;
+    string image_url = 4;
+    int32 category = 5;
+}
